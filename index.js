@@ -57,14 +57,13 @@ const highlighted = highlightKeywords(template, keywords);
 // 3
 
 function multiline(template) {
-    const lines = template.raw.flatMap(str => str.split('\n').map(line => line.trim())).filter(line => line !== '')
+    const lines = template.raw.flatMap(str => str.split('\n')).filter(line => line !== '').slice(1)
     return lines.map((line, index) => `${++index} ${line}`).join('\n')
 }
 
 const code = multiline`  
 function add(a, b) {  
-const addition = a + b
-return addition;  
+    return a + b;  
 }  
 `;
 
